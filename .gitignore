@@ -1,0 +1,9 @@
+.DS_Store
+.venvs/
+__pycache__/
+
+#for now
+/python/data/*
+!/python/data/.keep
+/python/output/*
+!/python/output/.keep
