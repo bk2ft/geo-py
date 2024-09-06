@@ -1,9 +1,8 @@
 from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
+from flask import Flask
 from flask_apispec.extension import FlaskApiSpec
 from flask_restful import Api
-
-from flask import Flask
 
 app = Flask(__name__)  # Flask app instance initiated
 api = Api(app)  # Flask restful wraps Flask app around it.

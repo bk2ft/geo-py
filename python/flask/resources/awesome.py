@@ -1,9 +1,8 @@
+from flask import Flask
 from flask_apispec import doc, marshal_with, use_kwargs
 from flask_apispec.views import MethodResource
 from flask_restful import Resource
 from marshmallow import Schema, fields
-
-from flask import Flask
 
 
 class AwesomeResponseSchema(Schema):
