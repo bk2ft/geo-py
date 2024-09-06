@@ -2,7 +2,11 @@
 .venvs/
 __pycache__/
 
+# Notebook Checkpoints
+.ipynb_checkpoints/
+
 #for now
+notes.txt
 /python/data/*
 !/python/data/.keep
 /python/output/*
