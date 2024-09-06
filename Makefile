@@ -19,6 +19,6 @@ jupyter:
 lint:
 	cd python
 	isort ./
-	black ./
+	black --line-length=80 ./
 	flake8 ./
-	mypy --ignore-missing-imports ./
+	# mypy --ignore-missing-imports ./

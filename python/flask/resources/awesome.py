@@ -1,4 +1,4 @@
-from flask import Flask
+# from flask import Flask
 from flask_apispec import doc, marshal_with, use_kwargs
 from flask_apispec.views import MethodResource
 from flask_restful import Resource
@@ -10,7 +10,9 @@ class AwesomeResponseSchema(Schema):
 
 
 class AwesomeRequestSchema(Schema):
-    api_type = fields.String(required=True, description="API type of awesome API")
+    api_type = fields.String(
+        required=True, description="API type of awesome API"
+    )
 
 
 #  Restful way of creating APIs through Flask Restful
