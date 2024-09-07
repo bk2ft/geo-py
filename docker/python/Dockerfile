@@ -12,4 +12,4 @@ RUN apt-get install -y libgdal-dev
 
 RUN pip install -r ./requirements.txt
 
-CMD [ "python", "/python/flask/main.py" ]
+CMD [ "python", "-u", "/python/flask/main.py" ]
