@@ -11,3 +11,4 @@ notes.txt
 !/python/data/.keep
 /python/output/*
 !/python/output/.keep
+/jmeter/*_output
