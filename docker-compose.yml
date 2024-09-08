@@ -10,3 +10,24 @@ services:
       - "8888:8888"
     volumes:
       - ./python:/python
+  
+  web:
+    build:
+      context: .
+      dockerfile: /docker/jmeter/Dockerfile.ui
+    tty: true
+    volumes:
+      - ./scenario/:/root/jmeter/
+    ports:
+      - 5900:5900
+      - 3390:3389
+  
+  web2:
+    image: guitarrapc/jmeter-gui:latest
+    tty: true
+    volumes:
+      - ./scenario/:/root/jmeter/
+    ports:
+      - 5900:5900
+      - 3390:3389
+  

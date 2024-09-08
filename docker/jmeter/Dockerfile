@@ -3,7 +3,6 @@ FROM ubuntu:18.04
 LABEL VENDOR=SAP \
 PRODUCT=jMeter_base \
 Version=1.0.1
-MAINTAINER Matt <matt3gg@hotmail.com>
 
 # Step 2
 ARG JMETER_VERSION="5.3"
@@ -52,7 +51,7 @@ RUN java  -jar cmdrunner-2.2.1.jar --tool org.jmeterplugins.repository.PluginMan
 # Step 9:
 WORKDIR ${JMETER_HOME}
 
-ADD ./jmeter/. ${JMETER_HOME}/bin/
+ADD ./jmeter/tests/. ${JMETER_HOME}/bin/tests/
 
 # Step 10:
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
