@@ -19,11 +19,12 @@ jupyter:
 jmeter_build:
 	docker build --no-cache -t jmeter_base:latest -f docker/jmeter/Dockerfile .
 
+# Add NAME of test when calling
 jmeter_test:
 	docker run -it -d --name jmeter jmeter_base:latest
 	docker cp ./jmeter/tests jmeter:/opt/apache-jmeter-5.3/bin
-	docker exec -it jmeter bash -c "cd bin; sh jmeter -n -t tests/TestPlan.jmx -JThreadNumber=10 -JRampUpPeriod=1 -Jiterations=10 -l results.csv -e -o /tests_output"
-	docker cp jmeter:/tests_output ./jmeter/tests
+	docker exec -it jmeter bash -c "cd bin; sh jmeter -n -t tests/$(NAME).jmx -JThreadNumber=10 -JRampUpPeriod=1 -Jiterations=10 -l results.csv -e -o /gui_output"
+	docker cp jmeter:/gui_output ./jmeter/tests/gui_output/$(NAME)/
 	docker stop jmeter
 	docker rm jmeter
 
@@ -33,8 +34,9 @@ jmeter_ui:
 run_gui:
 	docker run -v ${PWD}/jmeter/tests:/home/alpine/tests -e PASSWD=pword -d -p 5900:5900 --name jmeter_ui jmeter_ui:latest
 
+# Add NAME of test when calling
 non_gui:
-	docker run -v ${PWD}/jmeter/tests:/home/alpine/tests --name jmeter_noui jmeter_ui:latest jmeter -n -t tests/TestPlan.jmx -l tests/nogui_output/results.jtl
+	docker run -v ${PWD}/jmeter/tests:/home/alpine/tests --name jmeter_noui jmeter_ui:latest jmeter -n -t tests/$(NAME).jmx -l tests/nogui_output/$(NAME)/results.jtl
 	docker stop jmeter_noui
 	docker rm jmeter_noui
 	
