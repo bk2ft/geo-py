@@ -16,6 +16,9 @@ into:
 jupyter:
 	docker exec -it python jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
 
+unit_test:
+	docker exec -it python python /python/flask/tests.py
+
 jmeter_build:
 	docker build --no-cache -t jmeter_base:latest -f docker/jmeter/Dockerfile .
 
