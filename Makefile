@@ -22,7 +22,7 @@ jmeter_build:
 jmeter_test:
 	docker run -it -d --name jmeter jmeter_base:latest
 	docker cp ./jmeter/tests jmeter:/opt/apache-jmeter-5.3/bin
-	docker exec -it jmeter bash -c "cd bin; sh jmeter -n -t tests/TestPlan.jmx -JThreadNumber=10 -JRampUpPeriod=1 -Jiterations=10 -l results.csv -e -o /tests_output"
+	docker exec -it jmeter bash -c "cd bin; sh jmeter -n -t tests/TestPlanGraphQL.jmx -JThreadNumber=10 -JRampUpPeriod=1 -Jiterations=10 -l results.csv -e -o /tests_output"
 	docker cp jmeter:/tests_output ./jmeter/tests
 	docker stop jmeter
 	docker rm jmeter
@@ -44,3 +44,6 @@ lint:
 	black --line-length=80 ./
 	flake8 ./
 	# mypy --ignore-missing-imports ./
+	ontent-type: application/json' \
+    --url 'http://www.mattbudd.co.uk:2095/graphql' \
+    --data '{"query":"query ExampleQuery {\n  getJobs {\n    title\n  }\n}"}'
