@@ -2,6 +2,8 @@
 
 A project that so far uses to Docker create a Jupyter server, a Flask API & significant setup of jMeter. It contains an automated framework to run *.jmx tests by name, plus the ability to run the GUI through a VNC so you can structure those tests.
 
+## Python
+
 To build the main python image and keep the container running by hosting a Flask API, run the following...
 ```
 make compose
@@ -10,6 +12,14 @@ With the main Flask API running, run the following to piggyback that container a
 ```
 make jupyter
 ```
+
+With the main Flask API running, run the following to piggyback that container and run unit tests on the Flask API etc...
+```
+make unit_test
+```
+
+## jMeter
+
 Create a new jMeter image by running the following. This image is setup for automating tests internally...
 ```
 make jmeter_build
