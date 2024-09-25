@@ -1,7 +1,8 @@
-import unittest
 import json
+import unittest
 
 from main import app
+
 
 class AppTestCase(unittest.TestCase):
     def setUp(self):
@@ -18,7 +19,8 @@ class AppTestCase(unittest.TestCase):
         assert response.status_code == 200
 
         data = json.loads(response.get_data(as_text=True))
-        self.assertEqual(data['message'], "My First Awesome API")
+        self.assertEqual(data["message"], "My First Awesome API")
+
 
 if __name__ == "__main__":
     unittest.main()

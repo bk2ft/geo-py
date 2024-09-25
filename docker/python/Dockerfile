@@ -11,5 +11,6 @@ RUN apt-get -y upgrade
 RUN apt-get install -y libgdal-dev
 
 RUN pip install -r ./requirements.txt
+RUN chmod +x ./runit.sh
 
-CMD [ "python", "-u", "/python/flask/main.py" ]
+CMD [ "./runit.sh" ]

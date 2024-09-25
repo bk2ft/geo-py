@@ -10,6 +10,8 @@ pysal
 matplotlib
 missingno
 cx_Oracle
+SQLAlchemy
+fastapi
 flask
 flask_restful
 flask_jwt_extended
@@ -21,6 +23,7 @@ flask_cors
 networkx
 scikit-learn
 gunicorn
+uvicorn
 ldap3
 cryptography
 graphene
@@ -32,3 +35,4 @@ scrapy_playwright
 crochet
 pysolr
 jupyter
+pytest
